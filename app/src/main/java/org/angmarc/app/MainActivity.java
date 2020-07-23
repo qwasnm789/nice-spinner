@@ -69,15 +69,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupDefault() {
         NiceSpinner spinner = findViewById(R.id.nice_spinner);
-        List<String> dataset = new LinkedList<>(Arrays.asList("One", "Two", "Three", "Four", "Five"));
+        List<String> dataset = Arrays.asList(getResources().getStringArray(R.array.fps));
         spinner.attachDataSource(dataset);
-        spinner.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener() {
-            @Override
-            public void onItemSelected(NiceSpinner parent, View view, int position, long id) {
-                String item = parent.getItemAtPosition(position).toString();
-                Toast.makeText(MainActivity.this, "Selected: " + item, Toast.LENGTH_SHORT).show();
-            }
-        });
+        dataset = Arrays.asList(getResources().getStringArray(R.array.fp2));
+        spinner.attachDataSource(dataset);
     }
 }
 
